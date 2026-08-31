@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/local/injection/injection.dart';
+import 'package:flutter_app/modules/spends/mobx/auth_store.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 class Login extends StatefulWidget {
@@ -11,6 +13,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late bool _showPassword;
+  late AuthStore auth = getIt<AuthStore>();
   @override
   void initState() {
     super.initState();
@@ -22,6 +25,8 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
   @override
   void dispose() {
     _controller.dispose();
+    auth.dispose();
+
     super.dispose();
   }
 
@@ -45,6 +50,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
+                        controller: auth.emailController,
                         decoration: InputDecoration(
                           labelText: 'Email',
                           border: OutlineInputBorder(),
@@ -55,6 +61,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
+                        controller: auth.passwordController,
                         decoration: InputDecoration(
                           labelText: 'Password',
                           border: OutlineInputBorder(),
@@ -74,7 +81,15 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                         obscureText: !_showPassword,
                       ),
                     ),
-                    ElevatedButton(onPressed: () {}, child: Text('Login')),
+                    ElevatedButton(
+                      onPressed: () {
+                        auth.logIn(
+                          auth.emailController.text,
+                          auth.passwordController.text,
+                        );
+                      },
+                      child: Text('Login'),
+                    ),
                   ],
                 ),
               );

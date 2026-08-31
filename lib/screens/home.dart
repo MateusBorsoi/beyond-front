@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/local/injection/injection.dart';
+import 'package:flutter_app/modules/spends/mobx/auth_store.dart';
 import 'package:flutter_app/modules/spends/mobx/spends.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -13,6 +14,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final AuthStore auth = getIt<AuthStore>();
   @override
   void dispose() {
     super.dispose();
@@ -24,6 +26,14 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () {
+              auth.logOut(); // Implement logout functionality here
+            },
+          ),
+        ],
 
         title: Text(widget.title),
       ),

@@ -33,12 +33,12 @@ abstract class AuthStoreBase with Store {
   }
 
   @action
-  void logIn(String email, String password) {
+  Future<void> logIn(String email, String password) async {
     isLoggedIn = true;
     errorMessage = '';
     try {
       user = UserEntity(userName: email, email: email, password: password);
-      Session.navigation.go("/");
+      Session.navigation.go("/home");
     } catch (e) {
       errorMessage = e.toString();
     }
@@ -51,5 +51,6 @@ abstract class AuthStoreBase with Store {
     emailController.clear();
     passwordController.clear();
     errorMessage = '';
+    Session.navigation.go("/login");
   }
 }

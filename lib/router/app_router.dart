@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/core/session.dart';
 import 'package:flutter_app/local/injection/injection.dart';
 import 'package:flutter_app/modules/spends/mobx/auth_store.dart';
 import 'package:flutter_app/screens/home.dart';
@@ -14,10 +15,11 @@ class AppRouter {
   );
 
   static final GoRouter router = GoRouter(
-    initialLocation: '/',
+    navigatorKey: Session.globalContext,
+    initialLocation: '/home',
     routes: [
       GoRoute(
-        path: '/',
+        path: '/home',
         builder: (context, state) => Home(title: 'Flutter App'),
       ),
       GoRoute(path: '/login', builder: (context, state) => Login()),
@@ -26,7 +28,7 @@ class AppRouter {
       final loggedIn = isLoggedInNotifier.value;
       final goingToLogin = state.matchedLocation == '/login';
       if (!loggedIn && !goingToLogin) return '/login';
-      if (loggedIn && goingToLogin) return '/';
+      if (loggedIn && goingToLogin) return '/home';
       return null;
     },
   );
