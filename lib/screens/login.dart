@@ -10,8 +10,7 @@ class Login extends StatefulWidget {
   State<Login> createState() => _LoginState();
 }
 
-class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
+class _LoginState extends State<Login> {
   late bool _showPassword;
   late AuthStore auth = getIt<AuthStore>();
   @override
@@ -19,21 +18,17 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
     super.initState();
 
     _showPassword = false;
-    _controller = AnimationController(vsync: this);
   }
 
   @override
   void dispose() {
-    _controller.dispose();
-    auth.dispose();
-
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
+      appBar: AppBar(),
       body: Column(
         children: [
           Center(
@@ -51,6 +46,12 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
                         controller: auth.emailController,
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        validator: (value) {
+                          return auth.validateEmail(value)
+                              ? null
+                              : auth.errors['email'];
+                        },
                         decoration: InputDecoration(
                           labelText: 'Email',
                           border: OutlineInputBorder(),
@@ -61,6 +62,12 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        validator: (value) {
+                          return auth.validatePassword(value)
+                              ? null
+                              : auth.errors['password'];
+                        },
                         controller: auth.passwordController,
                         decoration: InputDecoration(
                           labelText: 'Password',

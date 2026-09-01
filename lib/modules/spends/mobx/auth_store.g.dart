@@ -114,20 +114,22 @@ mixin _$AuthStore on AuthStoreBase, Store {
     });
   }
 
-  late final _$logInAsyncAction = AsyncAction(
-    'AuthStoreBase.logIn',
-    context: context,
-  );
-
-  @override
-  Future<void> logIn(String email, String password) {
-    return _$logInAsyncAction.run(() => super.logIn(email, password));
-  }
-
   late final _$AuthStoreBaseActionController = ActionController(
     name: 'AuthStoreBase',
     context: context,
   );
+
+  @override
+  void logIn(String email, String password) {
+    final _$actionInfo = _$AuthStoreBaseActionController.startAction(
+      name: 'AuthStoreBase.logIn',
+    );
+    try {
+      return super.logIn(email, password);
+    } finally {
+      _$AuthStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   void logOut() {

@@ -4,6 +4,7 @@ import 'package:flutter_app/local/injection/injection.dart';
 import 'package:flutter_app/modules/spends/mobx/auth_store.dart';
 import 'package:flutter_app/screens/home.dart';
 import 'package:flutter_app/screens/login.dart';
+import 'package:flutter_app/screens/spends.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobx/mobx.dart';
 
@@ -17,12 +18,15 @@ class AppRouter {
   static final GoRouter router = GoRouter(
     navigatorKey: Session.globalContext,
     initialLocation: '/home',
+
+    refreshListenable: isLoggedInNotifier,
     routes: [
+      GoRoute(path: '/login', builder: (context, state) => Login()),
       GoRoute(
         path: '/home',
-        builder: (context, state) => Home(title: 'Flutter App'),
+        builder: (context, state) => Home(title: 'Beyond'),
       ),
-      GoRoute(path: '/login', builder: (context, state) => Login()),
+      GoRoute(path: '/spends', builder: (context, state) => Spends()),
     ],
     redirect: (context, state) {
       final loggedIn = isLoggedInNotifier.value;
