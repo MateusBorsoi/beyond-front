@@ -13,6 +13,8 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
 import '../../modules/spends/mobx/auth_store.dart' as _i405;
+import '../../modules/spends/mobx/cart_store.dart' as _i8;
+import '../../modules/spends/mobx/products_store.dart' as _i72;
 import '../../modules/spends/mobx/spends.dart' as _i1046;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -23,6 +25,8 @@ extension GetItInjectableX on _i174.GetIt {
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     gh.singleton<_i405.AuthStore>(() => _i405.AuthStore());
+    gh.singleton<_i8.CartStore>(() => _i8.CartStore());
+    gh.singleton<_i72.ProductsStore>(() => _i72.ProductsStore());
     gh.singleton<_i1046.Spends>(() => _i1046.Spends());
     return this;
   }

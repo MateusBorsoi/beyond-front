@@ -13,14 +13,6 @@ void main() {
   configureDependencies();
   AppRouter.setupListerners();
   runApp(const MyApp());
-
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarColor: Colors.deepPurple,
-      statusBarIconBrightness: Brightness.light,
-      statusBarBrightness: Brightness.dark,
-    ),
-  );
 }
 
 class MyApp extends StatelessWidget {

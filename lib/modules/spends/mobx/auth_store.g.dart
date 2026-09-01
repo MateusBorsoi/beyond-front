@@ -114,10 +114,52 @@ mixin _$AuthStore on AuthStoreBase, Store {
     });
   }
 
+  late final _$errorsAtom = Atom(
+    name: 'AuthStoreBase.errors',
+    context: context,
+  );
+
+  @override
+  dynamic get errors {
+    _$errorsAtom.reportRead();
+    return super.errors;
+  }
+
+  @override
+  set errors(dynamic value) {
+    _$errorsAtom.reportWrite(value, super.errors, () {
+      super.errors = value;
+    });
+  }
+
   late final _$AuthStoreBaseActionController = ActionController(
     name: 'AuthStoreBase',
     context: context,
   );
+
+  @override
+  bool validateEmail(dynamic text) {
+    final _$actionInfo = _$AuthStoreBaseActionController.startAction(
+      name: 'AuthStoreBase.validateEmail',
+    );
+    try {
+      return super.validateEmail(text);
+    } finally {
+      _$AuthStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  bool validatePassword(dynamic text) {
+    final _$actionInfo = _$AuthStoreBaseActionController.startAction(
+      name: 'AuthStoreBase.validatePassword',
+    );
+    try {
+      return super.validatePassword(text);
+    } finally {
+      _$AuthStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   void logIn(String email, String password) {
@@ -151,7 +193,8 @@ isLoading: ${isLoading},
 user: ${user},
 emailController: ${emailController},
 passwordController: ${passwordController},
-errorMessage: ${errorMessage}
+errorMessage: ${errorMessage},
+errors: ${errors}
     ''';
   }
 }

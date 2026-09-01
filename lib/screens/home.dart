@@ -25,6 +25,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final spends = getIt<Spends>();
+    final theme = Theme.of(context);
     return Scaffold(
       drawer: const DrawerNavigation(),
       appBar: AppBar(
@@ -55,9 +56,10 @@ class _HomeState extends State<Home> {
                     bottom: 8.0,
                   ),
                   child: Card(
+                    color: theme.cardColor,
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.black),
                       borderRadius: BorderRadius.circular(8.0),
+                      side: BorderSide(color: theme.dividerColor),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
@@ -77,8 +79,9 @@ class _HomeState extends State<Home> {
                     bottom: 8.0,
                   ),
                   child: Card(
+                    color: theme.cardColor,
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.black),
+                      side: BorderSide(color: theme.dividerColor),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     child: Padding(
