@@ -1,5 +1,5 @@
+import 'package:Beyond/local/injection/models/product_entity.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter_app/local/injection/models/product_entity.dart';
 
 class CartEntity extends Equatable {
   final double quantidade;

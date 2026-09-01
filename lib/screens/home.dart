@@ -1,9 +1,9 @@
+import 'package:Beyond/components/drawer_nav.dart';
+import 'package:Beyond/local/injection/injection.dart';
+import 'package:Beyond/modules/spends/mobx/auth_store.dart';
+import 'package:Beyond/modules/spends/mobx/spends.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/components/drawer_nav.dart';
-import 'package:flutter_app/core/session.dart';
-import 'package:flutter_app/local/injection/injection.dart';
-import 'package:flutter_app/modules/spends/mobx/auth_store.dart';
-import 'package:flutter_app/modules/spends/mobx/spends.dart';
+
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 class Home extends StatefulWidget {

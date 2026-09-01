@@ -1,6 +1,6 @@
+import 'package:Beyond/local/injection/models/user_entity.dart';
+import 'package:Beyond/utils/validators.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/local/injection/models/user_entity.dart';
-import 'package:flutter_app/utils/validators.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 part 'auth_store.g.dart';

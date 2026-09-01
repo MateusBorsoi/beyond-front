@@ -1,10 +1,10 @@
+import 'package:Beyond/core/session.dart';
+import 'package:Beyond/local/injection/injection.dart';
+import 'package:Beyond/modules/spends/mobx/auth_store.dart';
+import 'package:Beyond/screens/home.dart';
+import 'package:Beyond/screens/login.dart';
+import 'package:Beyond/screens/spends.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/core/session.dart';
-import 'package:flutter_app/local/injection/injection.dart';
-import 'package:flutter_app/modules/spends/mobx/auth_store.dart';
-import 'package:flutter_app/screens/home.dart';
-import 'package:flutter_app/screens/login.dart';
-import 'package:flutter_app/screens/spends.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobx/mobx.dart';
 

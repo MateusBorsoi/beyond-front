@@ -1,10 +1,10 @@
+import 'package:Beyond/core/session.dart';
+import 'package:Beyond/layout/theme.dart';
+import 'package:Beyond/local/injection/injection.dart';
+import 'package:Beyond/modules/spends/mobx/spends.dart';
+import 'package:Beyond/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/core/session.dart';
-import 'package:flutter_app/layout/theme.dart';
-import 'package:flutter_app/local/injection/injection.dart';
-import 'package:flutter_app/modules/spends/mobx/spends.dart';
-import 'package:flutter_app/router/app_router.dart';
 
 final spends = Spends();
 

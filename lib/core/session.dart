@@ -1,6 +1,6 @@
+import 'package:Beyond/router/navigation.dart';
+import 'package:Beyond/services/feature_toggle.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/router/navigation.dart';
-import 'package:flutter_app/services/feature_toggle.dart';
 
 class Session {
   static final globalContext = GlobalKey<NavigatorState>();

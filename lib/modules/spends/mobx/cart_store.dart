@@ -1,5 +1,5 @@
-import 'package:flutter_app/local/injection/models/cart_entity.dart';
-import 'package:flutter_app/local/injection/models/product_entity.dart';
+import 'package:Beyond/local/injection/models/cart_entity.dart';
+import 'package:Beyond/local/injection/models/product_entity.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 

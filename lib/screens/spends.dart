@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/core/session.dart';
 
 class Spends extends StatefulWidget {
   const Spends({super.key});

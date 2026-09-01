@@ -1,4 +1,4 @@
-import 'package:flutter_app/core/session.dart';
+import 'package:Beyond/core/session.dart';
 import 'package:go_router/go_router.dart';
 
 class Navigation {
