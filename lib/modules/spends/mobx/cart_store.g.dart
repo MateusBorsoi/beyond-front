@@ -42,6 +42,42 @@ mixin _$CartStore on CartStoreBase, Store {
   }
 
   @override
+  void removeProduct() {
+    final _$actionInfo = _$CartStoreBaseActionController.startAction(
+      name: 'CartStoreBase.removeProduct',
+    );
+    try {
+      return super.removeProduct();
+    } finally {
+      _$CartStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void incrementQuantity() {
+    final _$actionInfo = _$CartStoreBaseActionController.startAction(
+      name: 'CartStoreBase.incrementQuantity',
+    );
+    try {
+      return super.incrementQuantity();
+    } finally {
+      _$CartStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void decrementQuantity() {
+    final _$actionInfo = _$CartStoreBaseActionController.startAction(
+      name: 'CartStoreBase.decrementQuantity',
+    );
+    try {
+      return super.decrementQuantity();
+    } finally {
+      _$CartStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 cart: ${cart}

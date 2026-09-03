@@ -9,6 +9,7 @@ class DrawerNavigation extends StatefulWidget {
   final destinations = const <String, String>{
     'Início': '/home',
     'Gastos': '/spends',
+    'Produtos': '/products',
     'Configurações': '/settings',
   };
 }

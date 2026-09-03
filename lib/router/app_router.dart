@@ -3,6 +3,7 @@ import 'package:Beyond/local/injection/injection.dart';
 import 'package:Beyond/modules/spends/mobx/auth_store.dart';
 import 'package:Beyond/screens/home.dart';
 import 'package:Beyond/screens/login.dart';
+import 'package:Beyond/screens/products.dart';
 import 'package:Beyond/screens/spends.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -27,6 +28,7 @@ class AppRouter {
         builder: (context, state) => Home(title: 'Beyond'),
       ),
       GoRoute(path: '/spends', builder: (context, state) => Spends()),
+      GoRoute(path: '/products', builder: (context, state) => Products()),
     ],
     redirect: (context, state) {
       final loggedIn = isLoggedInNotifier.value;

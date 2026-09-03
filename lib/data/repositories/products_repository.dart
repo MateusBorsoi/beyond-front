@@ -1,11 +1,13 @@
 import 'package:Beyond/data/datasources/products_datasource.dart';
 import 'package:Beyond/local/injection/models/product_model.dart';
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 
 abstract class ProductsRepository {
   Future<Either<Exception, List<ProductModel>>> getProducts();
 }
 
+@Injectable(as: ProductsRepository)
 class ProductsRepositoryImpl implements ProductsRepository {
   final ProductsDatasource _datasource;
   ProductsRepositoryImpl(this._datasource);
