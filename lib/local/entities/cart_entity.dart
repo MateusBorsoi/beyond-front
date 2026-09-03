@@ -1,4 +1,4 @@
-import 'package:Beyond/local/injection/models/product_entity.dart';
+import 'package:Beyond/local/entities/product_entity.dart';
 import 'package:equatable/equatable.dart';
 
 class CartEntity extends Equatable {

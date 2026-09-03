@@ -1,5 +1,5 @@
-import 'package:Beyond/local/injection/models/cart_entity.dart';
-import 'package:Beyond/local/injection/models/product_entity.dart';
+import 'package:Beyond/local/entities/cart_entity.dart';
+import 'package:Beyond/local/entities/product_entity.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 
@@ -14,7 +14,7 @@ abstract class CartStoreBase with Store {
 
   @action
   void addProduct(ProductEntity newProduct, double desconto, double acrescimo) {
-    final subtotal = cart.quantidade * newProduct.preco;
+    final subtotal = cart.quantidade * newProduct.price;
     final total = subtotal - desconto + acrescimo;
 
     cart = CartEntity(
@@ -35,7 +35,7 @@ abstract class CartStoreBase with Store {
   @action
   void incrementQuantity() {
     final newQuantity = cart.quantidade + 1;
-    final subtotal = newQuantity * cart.product.preco;
+    final subtotal = newQuantity * cart.product.price;
     final total = subtotal - cart.desconto + cart.acrescimo;
 
     cart = CartEntity(
@@ -52,7 +52,7 @@ abstract class CartStoreBase with Store {
   void decrementQuantity() {
     final newQuantity = cart.quantidade - 1;
     if (newQuantity < 0) return;
-    final subtotal = newQuantity * cart.product.preco;
+    final subtotal = newQuantity * cart.product.price;
     final total = subtotal - cart.desconto + cart.acrescimo;
 
     cart = CartEntity(

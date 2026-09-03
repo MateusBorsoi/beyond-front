@@ -1,4 +1,4 @@
-import 'package:Beyond/local/injection/models/user_entity.dart';
+import 'package:Beyond/local/entities/user_entity.dart';
 import 'package:Beyond/utils/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
